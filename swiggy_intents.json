@@ -81,8 +81,8 @@
         "I want to contact the restaurant.",
         "I want to call the restaurant.",
         "I want to call the hotel.",
-        "I want make a call the hotel.",
-        "I want make a call the restaurant."
+        "I want make a call to the hotel.",
+        "I want make a call to the restaurant."
       ],
       "responses": [
         "You can call the restaurant {restaurant_name} at {restaurant_contact_number}"
