@@ -129,18 +129,30 @@ def get_response(result_list, intents_data):
 
     tag = result_list[0]["intent"]
 
+    #probability = result_list[0]["probability"]
+
     list_of_intents = swiggy_data["intents"]
 
     for intent in list_of_intents:
 
         if intent["tag"] == tag:
 
+
+
             result = random.choice(intent["responses"])
 
-            break
+
+
+
+
 
 
     return result
+
+
+
+
+
 
 
 def chat():

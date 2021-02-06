@@ -136,13 +136,24 @@ training_y = list(training[::1, 1])   # Our "output rows". (Grab all the element
 model = Sequential()                # Our model will contain a linear stack of layers.
 
 
-model.add(Dense(128, input_shape = (len(training_x[0]),), activation = "relu"))                  # Our model's input layer.
+model.add(Dense(512, input_shape = (len(training_x[0]),), activation = "relu"))                  # Our model's input layer.
 
 model.add(Dropout(0.5))
 
-model.add(Dense(64, activation = "relu"))
+
+model.add(Dense(512, activation = "relu"))
 
 model.add(Dropout(0.5))
+
+
+model.add(Dense(512, activation = "relu"))
+
+model.add(Dropout(0.5))
+
+
+
+
+
 
 model.add(Dense(len(training_y[0]), activation = "softmax"))           # Our model's output layer. ("softmax" activated)
 
@@ -150,7 +161,7 @@ sgd = SGD(lr = 0.01, decay = 1e-6, momentum = 0.9, nesterov = True)
 
 model.compile(loss = "categorical_crossentropy", optimizer = sgd, metrics = ['accuracy'])
 
-hist = model.fit(x= np.array(training_x), y= np.array(training_y), epochs = 200, batch_size = 5, verbose = 1)
+hist = model.fit(x= np.array(training_x), y= np.array(training_y), epochs = 100, batch_size = 5, verbose = 1)
 
 model.save("swiggy_model.h5", hist)
 
